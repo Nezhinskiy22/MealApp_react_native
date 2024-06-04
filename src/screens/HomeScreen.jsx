@@ -63,14 +63,16 @@ const HomeScreen = () => {
         const response = await axios.get(
           `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`
         );
-        if (response && response.data) {
+        if (response && response.data && response.data.meals) {
           setMeals(response.data.meals);
+        } else {
+          Alert.alert("No searching data");
         }
       } catch (error) {
         console.log("Error", error.message);
       }
     } else if (!searchTerm) {
-      Alert.alert("Please enter serchterm");
+      Alert.alert("Please enter searchterm");
     }
     setSearchTerm("");
     setLoading(false);

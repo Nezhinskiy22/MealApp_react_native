@@ -64,7 +64,7 @@ const RecipeCard = ({ item, index, navigation }) => {
         {/* <Animated.Image */}
         <Image
           source={{ uri: item.strMealThumb }}
-          // sharedTransitionTag={item.strMeal}
+          sharedTransitionTag={item.strMeal}
           style={{
             width: "100%",
             height: index % 3 == 0 ? hp(25) : hp(35),
